@@ -15,7 +15,7 @@ theta_grid, z_grid = np.meshgrid(theta, z_cylinder)
 x_cylinder = np.sqrt(50) * np.cos(theta_grid)
 y_cylinder = np.sqrt(50) * np.sin(theta_grid)
 
-x = np.linspace(-10, 10, 1000)
+x = np.linspace(-10, 10, 100000)
 y = np.sqrt(5 * x)
 z = 3 * x / 11
 
