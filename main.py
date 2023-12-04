@@ -1,8 +1,7 @@
-
-from scipy import integrate
 import  numpy as np 
 import plotly.graph_objects as go
 
+import utils
 """
 Для начала надо найти ограничения чтобы вставить их в формулу объема с тройным интегралом
 Нарисуем график:
@@ -50,18 +49,20 @@ fig.show()
 
 
 x_l = 5*np.sqrt(2)
-
 x = 5
-
 y_l = np.sqrt(5 * x);
 z_l = 3 * x/11;
 
 
-#Считаем тройной интеграл с помощью библиотеки scipy
 f = lambda z, y, x: 1
 
-result_1 = integrate.tplquad(f, 0, x, 0, y_l, 0, z_l)
-result_2 = integrate.tplquad(f, 5, x_l, 0, y_l, 0, z_l)
 
-print(result_1[0] + result_2[0])
+result_approx = utils.triple_integral_approx(f, (0,x_l), (0,y_l), (0,z_l), 110)
+print(f"Метод прямоугольнков: {result_approx}")
 
+
+
+result = utils.triple_integral_1(0,x_l, 0,y_l, 0,z_l)
+print(f"Аналитический метод: {result}")
+
+ 
